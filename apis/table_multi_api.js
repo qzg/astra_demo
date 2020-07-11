@@ -5,6 +5,8 @@ const {restURL, gqlURL, keyspace} = require('./config')
 const {camelcase_props, make_special_json, props_to_columns, get, post, mapper} = require('./utility')
 
 
+// example:
+// const users = new TableMultiAPI( 'users','Users' )
 class TableMultiAPI {
 
   // Model names and table names are frequently the same but 
