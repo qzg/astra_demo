@@ -140,10 +140,16 @@ function check_required_field( property_name, property_obj ){
   return true;
 }
 
-// convert this:
-// {userid: "1234", name:"person", email:"me@here.com", auth_platform:"google", last_ip"1.2.3.4", last_login:"whenever"
-// to this:
-//  [{name:"userid", value:"1234"}, {name:"name", value:"person"}, {name:"email", value:"me@here.com"}, ... ]
+// CONVERT THIS:
+// {userid: "1234", name:"person", email:"me@here.com",
+//      auth_platform:"google", last_ip"1.2.3.4", last_login:"whenever"}
+// TO THIS:
+//  [{name:"userid", value:"1234"},
+//   {name:"name", value:"person"},
+//   {name:"email", value:"me@here.com"},
+//   {name:"auth_platform", value:"google"},
+//   {name:"last_ip", value:"1.2.3.4"},
+//   {name:"last_login", value:"whenever"}]
 function props_to_columns( property_obj ){
   return Object.entries( property_obj ).map(
     ([key,val]) => {return {name:key, value:val}}

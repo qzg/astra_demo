@@ -9,9 +9,8 @@ router.get('/', function(req, res, next) {
 })
 
 
-/* Redirect to Google Sign-in workflow */
 router.get('/authenticate', function( req, res, next ) {
-  req.session.userid = "kiyuzg"
+  req.session.userid = req.query.userid
   req.session.save((err)=>{
     console.log( "session.save was called")
     if( err ){
@@ -19,10 +18,19 @@ router.get('/authenticate', function( req, res, next ) {
       console.log( err )
     } 
   })
-  res.send( 'AUTHENTICATE!' )
+  res.send( 'AUTHENTICATED!' )
 })
 
 router.post('/authenticate', function( req, res, next ) {
+  req.session.userid = req.query.userid
+  req.session.save((err)=>{
+    console.log( "session.save was called")
+    if( err ){
+      console.log( "there was an error:" )
+      console.log( err )
+    } 
+  })
+  console.log( `userid is ${req.session.userid}`)
   res.send( 'AUTHENTICATED!' )
 })
 
@@ -31,7 +39,7 @@ router.post('/register', function( req, res, next ){
 })
 
 router.get('/blessings', async function( req, res, next ) {
-  //res.json( req.session )
+  console.log( `retriveing blessings for: ${req.session.userid}` )
   if( !req.session.userid ){
     //console.log( req.session )
     // we don't know this user; authenticate!
