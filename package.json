@@ -1,0 +1,30 @@
+{
+  "name": "apiserver",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "test": "mocha"
+  },
+  "dependencies": {
+    "camelcase": "^6.0.0",
+    "cassandra-driver": "^4.5.2",
+    "cassandra-store": "^5.0.0",
+    "chai": "^4.2.0",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "express-session": "^1.17.1",
+    "got": "^11.4.0",
+    "http-errors": "~1.6.3",
+    "mocha": "^8.0.1",
+    "morgan": "~1.9.1",
+    "pug": "2.0.0-beta11",
+    "request": "^2.88.2",
+    "uuid": "^8.2.0"
+  },
+  "devDependencies": {
+    "chai": "*",
+    "mocha": "*"
+  }
+}
